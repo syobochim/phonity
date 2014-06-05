@@ -7,7 +7,10 @@
         "16": "images/icon-16.png",
         "128": "images/icon-128.png"
     },
-    "default_locale": "en",
+    "permissions": [
+        "http://terra.intra.tis.co.jp/*"
+    ],
+    "default_locale": "ja",
     "background": {
         "scripts": [
             "scripts/chromereload.js",

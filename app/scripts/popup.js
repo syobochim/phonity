@@ -1,14 +1,12 @@
-'use strict';
-var html;
+﻿'use strict';
 
 function PopupCtrl($scope, $http) {
-  // TODO: スクレイピングしてデータを取得するように変更する
   $http.get('http://terra.intra.tis.co.jp/aqua/atypes/userdir/').success(function(data) {
-  	html = $(data).find("div#node_item[indent='3'] div.section-body.stripe");
+    var membersDom = $(data).find("div#node_item[indent='3'] div.section-body.stripe").children();
+    $scope.members = [];
+    $.each(membersDom, function(index, member) {
+      var memberData = $(member).find(".tab-text");
+      $scope.members.push({ name: $(memberData[0]).text().trim(), extNumber: $(memberData[2]).text()});
+    });
   });
-  $scope.members = [
-    {name: 'てんてん', extNumber: '84-37750', status: '在席中'},
-    {name: 'うがちゃん', extNumber: '84-11111', status: '離席中'},
-    {name: 'わだ', extNumber: '84-22222', status: '休み'}
-  ];
 }

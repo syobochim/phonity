@@ -1,10 +1,26 @@
 <!doctype html>
-<html>
-    <head>        
+<html ng-app ng-csp>
+    <head>
         <link href="styles/main.css" rel="stylesheet">
-        <script src="scripts/popup.js"></script>
     </head>
     <body>
-      <h1>'Allo, 'Allo!</h1>
+      <div ng-controller="PopupCtrl">
+        <table>
+          <tr>
+            <th>Name</th>
+            <th>Extention number</th>
+          </tr>
+          <tr ng-repeat="member in members">
+            <td>{{member.name}}</td>
+            <td>{{member.extNumber}}</td>
+          </tr>
+      <div>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-route/angular-route.js"></script>
+      <script src="scripts/popup.js"></script>
     </body>
 </html>

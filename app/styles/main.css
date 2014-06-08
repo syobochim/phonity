@@ -2,3 +2,6 @@ body {
     padding: 20px;
     min-width:350px;
 }
+.ng-hide {
+  display: none;
+}

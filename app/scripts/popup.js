@@ -10,5 +10,18 @@ popup.controller('PopupCtrl', ['$scope', '$http', function($scope, $http) {
       var memberData = $(member).find(".tab-text");
       $scope.members.push({ name: $(memberData[0]).text().trim(), extNumber: $(memberData[2]).text()});
     });
+  }).
+  error(function(){
+    $scope.alerts = [];
+    $scope.alerts.push({ type: 'danger', msg: 'Terraにログインしてください。' })
   });
+
+  $scope.addAlert = function() {
+    $scope.alerts.push({msg: 'Another alert!'});
+  };
+
+  $scope.closeAlert = function(index) {
+    $scope.alerts.splice(index, 1);
+  };
+
 }]);

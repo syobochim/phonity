@@ -2,7 +2,8 @@
 
 var popup = angular.module('popup', ['ui.bootstrap']);
 
-popup.controller('PopupCtrl', ['$scope', '$http', function($scope, $http) {
+popup.controller('PopupCtrl', ['$scope', '$http', '$filter', function($scope, $http, $filter) {
+  $scope.predicate = 'mail';
   $http.get('http://terra.intra.tis.co.jp/aqua/atypes/userdir/').success(function(data) {
     var membersDom = $(data).find("div#node_item[indent='3'] div.section-body.stripe").children();
     $scope.members = [];

@@ -5,3 +5,6 @@ body {
 .ng-hide {
   display: none;
 }
+.search {
+  padding-bottom: 10px;
+}

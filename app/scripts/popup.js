@@ -21,10 +21,7 @@ popup.controller('PopupCtrl', ['$scope', '$http', '$filter', function($scope, $h
     $scope.alerts.push({ type: 'danger', msg: 'Terraにアクセスできません' })
   });
 
-  $scope.addAlert = function() {
-    $scope.alerts.push({msg: 'Another alert!'});
-  };
-
+  // alertのclose用 ex: close="closeAlert($index)"
   $scope.closeAlert = function(index) {
     $scope.alerts.splice(index, 1);
   };

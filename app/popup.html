@@ -6,41 +6,44 @@
     </head>
     <body>
       <div ng-controller="PopupCtrl">
-        <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
-        <div class="success" ng-if="alerts.length == 0">
-          <div class="search">
-            <span class="glyphicon glyphicon-search">Serch:</span>
-            <input ng-model="query">
-          </div>
-          <table ng-table class="table table-striped table-bordered">
-            <tr>
-              <th>
-                <a href="#" ng-click="predicate='mailAddress'; reverse=!reverse">
-                  <div ng-show="reverse">
-                    <span class="glyphicon glyphicon-sort-by-alphabet"></span>
-                  </div>
-                  <div ng-show="!reverse">
-                    <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
-                </div>
-                </a>
-              </th>
-              <th>
-                <span class="glyphicon glyphicon-user"></span>
-                Name
-              </th>
-              <th>
-                <span class="glyphicon glyphicon-earphone"></span>
-                Extention number
-              </th>
-            </tr>
-            <tr ng-repeat="member in members | filter:query | orderBy:predicate:reverse">
-              <td>{{member.initial | uppercase}}</td>
-              <td>{{member.name}}</td>
-              <td>{{member.extNumber}}</td>
-            </tr>
-          </table>
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}</alert>
+        <div class="search">
+          <span class="glyphicon glyphicon-search">Serch:</span>
+          <input type="text" autofocus="true" ng-model="query"/>
         </div>
-      <div>
+        <table ng-table class="table table-striped table-bordered">
+          <tr>
+            <th>
+              <a href="#" ng-click="predicate='mailAddress'; reverse=!reverse">
+                <div ng-show="reverse">
+                  <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                </div>
+                <div ng-show="!reverse">
+                  <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+              </div>
+              </a>
+            </th>
+            <th>
+              <span class="glyphicon glyphicon-user"></span>
+              Name
+            </th>
+            <th>
+              <span class="glyphicon glyphicon-phone-alt"></span>
+              Extention number
+            </th>
+            <th>
+              <span class="glyphicon glyphicon-envelope"></span>
+              Mail
+            </th>
+          </tr>
+          <tr ng-repeat="member in members | filter:query:first| orderBy:predicate:reverse">
+            <td>{{member.initial | uppercase}}</td>
+            <td>{{member.name}}</td>
+            <td>{{member.extNumber}}</td>
+            <td>{{member.mailAddress}}</a></td>
+          </tr>
+        </table>
+      </div>
       <script src="bower_components/jquery/dist/jquery.min.js"></script>
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-resource/angular-resource.js"></script>

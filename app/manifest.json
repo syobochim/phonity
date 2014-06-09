@@ -8,7 +8,8 @@
         "128": "images/icon-128.png"
     },
     "permissions": [
-        "http://terra.intra.tis.co.jp/*"
+        "http://terra.intra.tis.co.jp/*",
+        "tabs"
     ],
     "default_locale": "ja",
     "background": {

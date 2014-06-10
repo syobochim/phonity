@@ -1,10 +1,14 @@
 body {
     padding: 20px;
     min-width:650px;
+    background: url(./background.png) center center;
 }
 .ng-hide {
   display: none;
 }
 .search {
   padding-bottom: 10px;
+}
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: rgba(0,0,0,0.03);
 }

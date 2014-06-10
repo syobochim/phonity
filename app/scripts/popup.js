@@ -12,7 +12,7 @@ popup.controller('PopupCtrl', ['$scope', '$http', '$filter', '$localStorage', fu
     } else {
       $scope.$storage.members = $scope.$storage.members || [];
       if($scope.$storage.members.length == 0) {
-        var membersDom = $(data).find("div#node_item[indent='3'] div.section-body.stripe").children();
+        var membersDom = $(data).find("div#node_item div.section-body.stripe").children();
         $.each(membersDom, function(index, member) {
           var memberData = $(member).find(".tab-text");
           $scope.$storage.members.push({ initial: $(memberData[1]).text().charAt(0), name: $(memberData[0]).text().trim(), mailAddress: $(memberData[1]).text(), extNumber: $(memberData[2]).text()});

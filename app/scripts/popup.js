@@ -6,7 +6,7 @@ popup.controller('PopupCtrl', ['$scope', '$http', '$filter', '$localStorage', fu
   $scope.$storage = $localStorage;
   $scope.predicate = 'mailAddress';
   $scope.alerts = [];
-  $http.get('http://terra.intra.tis.co.jp/aqua/atypes/userdir/').success(function(data) {
+  $http.get('http://terra.intra.tis.co.jp/aqua/atypes/userdir/view?exa=namelist-groupdir').success(function(data) {
     if ($(data).find("form[name=loginForm]").size() > 0) {
       $scope.alerts.push({ type: 'warning', msg: 'Terraにログインしてください。' })
     } else {

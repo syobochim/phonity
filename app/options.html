@@ -1,10 +1,24 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="options" ng-csp>
     <head>
+        <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="styles/main.css" rel="stylesheet">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-ui-bootstrap-bower/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/ngstorage/ngStorage.min.js"></script>
         <script src="scripts/options.js"></script>
     </head>
     <body>
-      <h1>'Allo, 'Allo!</h1>
+      <div ng-controller="OptionsCtrl">
+        <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}</alert>
+        <button ng-click="addData()">add</button>
+        <button ng-click="updateData()">update</button>
+        <button ng-click="clearData()">clear</button>
+      </div>
     </body>
 </html>

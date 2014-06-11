@@ -1,7 +1,7 @@
 body {
     padding: 20px;
     min-width:650px;
-    background: url(./background.png) center center;
+    background: url(./phonity_bg.png) center center;
 }
 .ng-hide {
   display: none;

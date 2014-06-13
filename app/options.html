@@ -3,7 +3,7 @@
     <head>
         <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="styles/main.css" rel="stylesheet">
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery/dist/jquery.min.map"></script>
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-resource/angular-resource.js"></script>
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -14,11 +14,25 @@
         <script src="scripts/options.js"></script>
     </head>
     <body>
-      <div ng-controller="OptionsCtrl">
-        <alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}</alert>
-        <button ng-click="addData()">add</button>
-        <button ng-click="updateData()">update</button>
-        <button ng-click="clearData()">clear</button>
-      </div>
-    </body>
+        <div ng-controller="OptionsCtrl">
+            <tabset>
+                <tab>
+                    <tab-heading>
+                        <i class="glyphicon glyphicon-cog"></i> Settings
+                    </tab-heading>
+                    <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+                    <button ng-click="addData()" class="btn btn-info">add</button>
+                    <button ng-click="updateData()" class="btn btn-primary">update</button>
+                    <button ng-click="clearData()" class="btn btn-danger">clear</button>
+                </tab>
+                <tab>
+                    <tab-heading>
+                        <i class="glyphicon glyphicon-globe"></i> About
+                    </tab-heading>
+                    I've got an HTML heading, and a select callback. Pretty cool!
+                </tab>
+            </tabset>
+
+</div>
+</body>
 </html>
